@@ -1,7 +1,26 @@
 import Link from 'next/link';
+import Head from 'next/head';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+
+Router.onRouteChangeStart = url => {
+  console.log(url);
+  NProgress.start();
+}
+
+Router.onRouteChangeComplete = () => NProgress.done();
+Router.onRouteChangeError = () => NProgress.done();
+
 
 const Layout = ({ children, title }) => (
   <div className="root">
+    <Head>
+      <title>Portfolio</title>
+      <link 
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
+      />
+    </Head>
     <header>
       <Link href="/"><a>HOME</a></Link> <Link href="/about"><a>ABOUT</a></Link> <Link href="/contact"><a>CONTACT</a></Link>
     </header>
