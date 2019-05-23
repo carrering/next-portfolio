@@ -32,7 +32,7 @@ const Layout = ({ children, title }) => (
     </footer>
     <style jsx>{`
       .root {
-        font-family: sans-serif;
+        // font-family: sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;

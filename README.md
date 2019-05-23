@@ -76,3 +76,43 @@ Then within the main <div>
 Next Custom Page
 
 direct access to html docuemnt like head and body for global use like SEO and CDN links
+
+
+
+## Stateless Component Example
+
+about.js
+```
+import Link from 'next/link';
+import Layout from '../components/Layout';
+
+const About = () => (
+  <Layout title="About">
+    <Link href="/">
+      <a>Home</a>
+    </Link>
+    <p>A kickass developer</p>
+    <img src="/static/pitcrew.jpg" alt="pitcrew" height="200px"/>
+  </Layout>
+);
+
+export default About;
+
+```
+
+## Client Rendered Stateful Compnonent
+about.js
+```
+//client rendered stateful component
+
+componentDidMount(){
+  fetch('https://api.github.com/users/reedbarger')
+    .then(res => res.json())
+    .then(data => {
+      this.setState({
+        user: data
+      });
+    })
+}
+
+  ```
